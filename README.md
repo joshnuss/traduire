@@ -29,11 +29,15 @@ hello_world: Hello World!!
 
 ### Translate a file
 
-    $ trad example.rb
+    $ traduire example.rb
+
+### Translate multiple files
+
+    $ traduire **/*.rb **/*.html.erb
 
 ### Cherry pick
 
-    $ trad example.rb --patch
+    $ traduire example.rb --patch
 
 ## Development
 
