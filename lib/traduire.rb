@@ -1,5 +1,5 @@
 require "traduire/version"
+require 'active_support/all'
 
 module Traduire
-  # Your code goes here...
 end
