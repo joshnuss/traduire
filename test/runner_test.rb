@@ -7,9 +7,9 @@ class RunnerTest < Minitest::Test
     FileUtils.cp('test/fixtures/hello_world.rb', 'test/dummy/hello_world.rb')
   end
 
-  def test_runner
+  def test_executing_with_file
     @runner.files = ['test/dummy/hello_world.rb']
-    @runner.transform
+    @runner.execute
 
     assert_equal "puts I18n.t(:hello_world)\n", File.read('test/dummy/hello_world.rb')
   end

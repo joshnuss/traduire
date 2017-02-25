@@ -4,4 +4,4 @@ require "traduire"
 
 runner = Traduire::Runner.new
 runner.files = ARGV
-runner.transform
+runner.execute
