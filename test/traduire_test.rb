@@ -8,7 +8,8 @@ class TraduireTest < Minitest::Test
   end
 
   def test_parses_file
-    matches = Traduire.parse 'puts "Hello World!"'
+    source = 'puts "Hello World!"'
+    matches = Traduire.parse(source)
 
     assert_equal 1, matches.length
 
@@ -17,15 +18,15 @@ class TraduireTest < Minitest::Test
     assert_equal 1, match.line
     assert_equal 'Hello World!', match.string
     assert_equal 'hello_world', match.suggestion
-    assert_equal 'puts I18n.t(:hello_world)', match.example
+    assert_equal 'puts I18n.t(:hello_world)', match.example(source)
   end
 
   def test_transforms_source
-    match = Traduire::Match.new(string: "hello there", line: 1, suggestion: "hello")
+    match = Traduire::Match.new(string: "hello there", line: 1)
     source = 'puts "hello there"'
 
     result = Traduire.transform(source, [match])
 
-    assert_equal "puts I18n.t(:hello)", result
+    assert_equal "puts I18n.t(:hello_there)", result
   end
 end

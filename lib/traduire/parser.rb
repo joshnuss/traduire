@@ -1,18 +1,25 @@
 module Traduire
-  module Parser
-    extend self
+  class Parser
+    def self.parse(data)
+      new(data).parse
+    end
 
-    def parse(data)
-      return [] unless matches = data.match(/"(.+)"/)
+    def initialize(data)
+      @data = data
+    end
 
-      matches.captures.map do |text|
-        key = text.downcase.gsub(' ', '_').tr('!', '')
+    def parse
+      matches ? matches.map(&method(:match)) : []
+    end
 
-        Match.new(string: text,
-                  line: 1,
-                  suggestion: key,
-                  example: data.gsub("\"#{text}\"", "I18n.t(:#{key})"))
-      end
+    private
+
+    def matches
+      @matches ||= @data.match(/"(.+)"/).try(:captures)
+    end
+
+    def match(text)
+      Match.new(string: text, line: 1)
     end
   end
 end
