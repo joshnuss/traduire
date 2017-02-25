@@ -39,6 +39,14 @@ hello_world: Hello World!!
 
     $ traduire example.rb --patch
 
+## Supported Formats
+
+| Format     | Extension  | Supported |
+| ---------- | ---------- | --------- |
+| Ruby       | .rb        | planned   |
+| HTML       | .html.erb  | planned   |
+| JavaScript | .js        | planned   |
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
