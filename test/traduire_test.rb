@@ -21,7 +21,7 @@ class TraduireTest < Minitest::Test
   end
 
   def test_transforms_source
-    match = Match.new(string: "hello there", line: 1, suggestion: "hello")
+    match = Traduire::Match.new(string: "hello there", line: 1, suggestion: "hello")
     source = 'puts "hello there"'
 
     result = Traduire.transform(source, [match])
