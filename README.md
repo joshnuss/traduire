@@ -1,4 +1,7 @@
-# Traduire
+Traduire
+=================
+
+[![Build Status](https://travis-ci.org/joshnuss/traduire.svg?branch=master)](https://travis-ci.org/joshnuss/traduire)
 
 A utility for translating Rails apps.
 
