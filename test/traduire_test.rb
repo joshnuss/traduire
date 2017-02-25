@@ -19,4 +19,13 @@ class TraduireTest < Minitest::Test
     assert_equal 'hello_world', match.suggestion
     assert_equal 'puts I18n.t(:hello_world)', match.example
   end
+
+  def test_transforms_source
+    match = Match.new(string: "hello there", line: 1, suggestion: "hello")
+    source = 'puts "hello there"'
+
+    result = Traduire.transform(source, [match])
+
+    assert_equal "puts I18n.t(:hello)", result
+  end
 end

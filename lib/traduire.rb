@@ -17,4 +17,14 @@ module Traduire
                 example: data.gsub("\"#{text}\"", "I18n.t(:#{key})"))
     end
   end
+
+  def transform(source, matches)
+    matches.reduce(source, &method(:transform_match))
+  end
+
+  private
+
+  def transform_match(source, match)
+    source.gsub(%Q("#{match.string}"), "I18n.t(:#{match.suggestion})")
+  end
 end
