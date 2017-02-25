@@ -5,6 +5,14 @@ module Traduire
 
     attr_accessor :files
 
+    def self.execute(files)
+      new(files).execute
+    end
+
+    def initialize(files = [])
+      @files = files
+    end
+
     def execute 
       @files.each(&method(:convert))
     end
