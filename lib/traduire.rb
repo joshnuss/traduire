@@ -1,6 +1,7 @@
 require "traduire/version"
 require 'active_support/all'
 require_relative 'traduire/match'
+require_relative 'traduire/runner'
 
 module Traduire
   extend self
